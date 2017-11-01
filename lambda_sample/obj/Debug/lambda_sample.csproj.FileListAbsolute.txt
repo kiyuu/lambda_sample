@@ -16,3 +16,4 @@ C:\Users\Nakanishi\Source\_lambda_sample\obj\Debug\lambda_sample.csproj.Generate
 C:\Users\Nakanishi\Source\_lambda_sample\obj\Debug\lambda_sample.csproj.CoreCompileInputs.cache
 C:\Users\Nakanishi\Source\_lambda_sample\obj\Debug\lambda_sample.exe
 C:\Users\Nakanishi\Source\_lambda_sample\obj\Debug\lambda_sample.pdb
+C:\Users\Nakanishi\Source\Repos\lambda_sample\lambda_sample\obj\Debug\lambda_sample.Form1.resources
