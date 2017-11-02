@@ -37,13 +37,14 @@ namespace lambda_sample
             // Delegateで渡す関数のインスタンスを作成
             var main = new method_for_delegate();
 
+            int i = 10;
             // Delegateに代入
             lambda_sample_delegate.CalculateMethod calc = new lambda_sample_delegate.CalculateMethod(main.Add);
-            LblAddAnswer.Text = calc(10, 20).ToString();
+            LblAddAnswer.Text = calc(ref i, 20).ToString();
 
             // Delegateに代入
             calc = new lambda_sample_delegate.CalculateMethod(main.Sub);
-            LblSubAnswer.Text = calc(10, 20).ToString();
+            LblSubAnswer.Text = calc(ref i, 20).ToString();
 
             List<string> recs = new List<string>() {
                 string.Empty
@@ -142,14 +143,22 @@ namespace lambda_sample
 
         private void button3_Click(object sender, EventArgs e)
         {
+            int i = 10;
+            // ラムダ式を使用して定義済み型であるFuncに代入
+            lambda_sample_delegate.CalculateMethod calc = (ref int x,int y) =>
+            {
+                x = x + 1;
+                return x + y;
+            };
+            LblAddAnswer.Text = calc(ref i, 20).ToString();
 
             // ラムダ式を使用して定義済み型であるFuncに代入
-            Func<int, int, int> calc = (x, y) => { return x + y; };
-            LblAddAnswer.Text = calc(10, 20).ToString();
-
-            // ラムダ式を使用して定義済み型であるFuncに代入
-            calc = (x, y) => { return x - y; };
-            LblSubAnswer.Text = calc(10, 20).ToString();
+            calc = (ref int x, int y) =>
+            {
+                x = x + 1;
+                return x - y;
+            };
+            LblSubAnswer.Text = calc(ref i, 20).ToString();
 
             List<string> recs = new List<string>() {
                 string.Empty,string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty, string.Empty
@@ -158,11 +167,11 @@ namespace lambda_sample
                 , string.Empty
                 , string.Empty
                 , "// ラムダ式を使用して定義済み型であるFuncに代入"
-                , "Func<int, int, int> calc =(x, y)=> { return x + y; };"
+                , "Func<int, int, int> calc =(x, y)=> ( x + y);"
                 , "LblAddAnswer.Text = calc(10, 20).ToString();"
                 , string.Empty
                 , "// ラムダ式を使用して定義済み型であるFuncに代入"
-                , "calc = (x, y) => { return x - y; };"
+                , "calc = (x, y) => (x - y);"
                 , "LblSubAnswer.Text = calc(10, 20).ToString();"
             };
             IEnumerable<string> list = recs.Where(s => true);
