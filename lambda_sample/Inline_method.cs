@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace lambda_sample_inline_method
 {
     // デリゲートを定義
-    public delegate int CalculateMethod(int x, int y);
+    public delegate int CalculateMethod(ref int x, int y);
 
 }

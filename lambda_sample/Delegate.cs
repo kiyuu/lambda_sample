@@ -21,7 +21,6 @@ namespace lambda_sample_delegate
         // デリゲートに代入するためのメソッド（引き算）
         public int Sub(ref int x, int y)
         {
-            x = x + 1;
             return x - y;
         }
     }
