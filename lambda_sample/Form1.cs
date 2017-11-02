@@ -144,11 +144,11 @@ namespace lambda_sample
         {
 
             // ラムダ式を使用して定義済み型であるFuncに代入
-            Func<int, int, int> calc = (x, y) => { return x + y; };
+            Func<int, int, int> calc = (x, y) =>  x + y; 
             LblAddAnswer.Text = calc(10, 20).ToString();
 
             // ラムダ式を使用して定義済み型であるFuncに代入
-            calc = (x, y) => { return x - y; };
+            calc = (x, y) =>  x - y;
             LblSubAnswer.Text = calc(10, 20).ToString();
 
             List<string> recs = new List<string>() {
@@ -158,11 +158,11 @@ namespace lambda_sample
                 , string.Empty
                 , string.Empty
                 , "// ラムダ式を使用して定義済み型であるFuncに代入"
-                , "Func<int, int, int> calc =(x, y)=> { return x + y; };"
+                , "Func<int, int, int> calc =(x, y)=> x + y;"
                 , "LblAddAnswer.Text = calc(10, 20).ToString();"
                 , string.Empty
                 , "// ラムダ式を使用して定義済み型であるFuncに代入"
-                , "calc = (x, y) => { return x - y; };"
+                , "calc = (x, y) => x - y;"
                 , "LblSubAnswer.Text = calc(10, 20).ToString();"
             };
             IEnumerable<string> list = recs.Where(s => true);
