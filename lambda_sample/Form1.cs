@@ -99,7 +99,7 @@ namespace lambda_sample
                 , string.Empty
                 , string.Empty
                 , "// 匿名関数を使用してそのままDelegateに代入"
-                , "lambda_sample_inline_method.CalculateMethod calc = delegate (int x, int y) { return x + y; };"
+                , "CalculateMethod calc = delegate (int x, int y) { return x + y; };"
                 , "LblAddAnswer.Text = calc(10, 20).ToString();"
                 , string.Empty
                 , "// 匿名関数を使用してそのままDelegateに代入"
@@ -208,8 +208,8 @@ namespace lambda_sample
                 , string.Empty
                 , "(使用する側)"
                 , string.Empty
-                , string.Empty
-                , string.Empty
+                , "// Delegateで渡す関数のインスタンスを作成"
+                , "var main = new method_for_delegate_func();"
                 , string.Empty
                 , "// 定義済み型であるFuncに代入"
                 , "Func<int, int, int> calc = main.Add;"
